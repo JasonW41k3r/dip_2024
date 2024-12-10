@@ -2,14 +2,15 @@ import cv2
 import numpy as np
 import random
 
-N = 5 # 滤波核的维数，只能为奇数
+N = 7 # 滤波核的维数，只能为奇数
+pa = pb = 0.2 # 椒盐噪声出现的概率
 
 # 读取图像并转化为numpy数组
 image_a = cv2.imread('a.jpeg', cv2.IMREAD_GRAYSCALE)
 noised_matrix = image_a.copy()
 # print(a_matrix.shape)
 
-pa = pb = 0.2
+
 
 # 添加椒盐噪声
 for i in range(noised_matrix.shape[0]):
@@ -40,7 +41,7 @@ psnr = cv2.PSNR(image_a, mf_matrix)
 
 cv2.imshow('Before filter', noised_matrix)
 cv2.imshow('After filter', mf_matrix)
-print(f"mse error: {mse}, psnr: {psnr}")
+print(f"N: {N}\nmse error: {mse}\npsnr: {psnr}")
 
 
 
