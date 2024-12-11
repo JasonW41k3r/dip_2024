@@ -39,8 +39,8 @@ mf_matrix = np.uint8(mf_matrix) # 将中值滤波后的图像转换为 uint8 类
 mse = np.mean((mf_matrix - image_a) ** 2)
 psnr = cv2.PSNR(image_a, mf_matrix)
 
-cv2.imshow('Before filter', noised_matrix)
-cv2.imshow('After filter', mf_matrix)
+cv2.imwrite('./img/a/Before_filter.jpeg', noised_matrix)
+cv2.imwrite('./img/a/After_filter.jpeg', mf_matrix)
 print(f"N: {N}\nmse error: {mse}\npsnr: {psnr}")
 
 
